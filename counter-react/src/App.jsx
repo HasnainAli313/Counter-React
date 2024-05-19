@@ -5,17 +5,27 @@ function App() {
 
   let [counter,setCounter]  = useState(0);
 
+  // Styles applied to buttons
   const buttonsStyle = {
-    padding:10,backgroundColor: 'black',color:'white'
-  }
+    padding:10,margin:5}
+
+  const incrementStyle = {
+    backgroundColor:"blue"}
+
+  const decrementStyle = {
+    backgroundColor:"purple"}
+
+  const resetStyle = {
+   backgroundColor:"red"}
+
   // increment function
   function incrementHandler() {
-    setCounter(counter++);
+    setCounter(++counter);
   }
 
   // decrement function
   function decrementHandler() {
-    setCounter(counter--);
+    setCounter(--counter);
   }
   // reset function
   function resetHandler() {
@@ -28,10 +38,9 @@ function App() {
   return (
     <>
     <h1>{counter}</h1>
-    <button style={{buttonsStyle}} onClick={incrementHandler}>increment</button>
-    <button style={{buttonsStyle}} onClick={decrementHandler}>decrement</button>
-    <button style={{buttonsStyle}} onClick={resetHandler}>reset</button>
-    {/* <App></App> */}
+    <button style={{...buttonsStyle, ...incrementStyle}} onClick={incrementHandler}>increment</button>
+    <button style={{...buttonsStyle,...decrementStyle}} onClick={decrementHandler}>decrement</button>
+    <button style={{...buttonsStyle,...resetStyle}} onClick={resetHandler}>reset</button>
     </>
   )
 }
